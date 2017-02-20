@@ -16,6 +16,10 @@ return [
 //            following line will restrict access to profile, recovery, registration and settings controllers from backend
 //            'as backend' => 'dektrium\user\filters\BackendFilter',
             'class' => 'dektrium\user\Module',
+            'controllerMap' => [
+                'registration' => 'app\controllers\user\RegistrationController',
+                'security' => 'app\controllers\user\SecurityController',
+            ],
             'admins' => ['admin'],
             'adminPermission' =>'admin',
             //'layout' => '@app/views/layouts/old_main',
@@ -72,7 +76,8 @@ return [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@app/views' => '@app/views/layouts'
+                    '@app/views' => '@app/views/layouts',
+                    '@dektrium/user/views' => '@app/views/user',
                 ],
             ],
         ],
