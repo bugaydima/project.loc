@@ -19,6 +19,7 @@ return [
             'controllerMap' => [
                 'registration' => 'app\controllers\user\RegistrationController',
                 'security' => 'app\controllers\user\SecurityController',
+                'recovery' => 'app\controllers\user\RecoveryController',
             ],
             'admins' => ['admin'],
             'adminPermission' =>'admin',
