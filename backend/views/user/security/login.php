@@ -74,10 +74,8 @@ $fieldOptions2 = [
         </div>
         <?php ActiveForm::end(); ?>
         <div class="social-auth-links text-center">
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in
-                using Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign
-                in using Google+</a>
+            <a href="/admin/user/security/auth?authclient=facebook" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Войти с помощью Facebook</a>
+            <a href="/admin/user/security/auth?authclient=vkontakte" class="btn btn-block btn-social btn-vk btn-flat"><i class="fa fa-vk"></i> Войти с помощью Vk</a>
         </div>
         <!-- /.social-auth-links -->
         <p class="text-left">
@@ -96,8 +94,8 @@ $fieldOptions2 = [
                 <?= Html::a(Yii::t('user', 'Don\'t have an account? Sign up!'), ['/user/registration/register']) ?>
             </p>
         <?php endif ?>
-        <?= Connect::widget([
-            'baseAuthUrl' => ['/user/security/auth'],
-        ]) ?>
+<!--        --><?//= Connect::widget([
+//            'baseAuthUrl' => ['/user/security/auth'],
+//        ]) ?>
     </div>
 </div>

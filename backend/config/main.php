@@ -36,6 +36,21 @@ return [
 //            'enableAutoLogin' => true,
 //            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
 //        ],
+        'authClientCollection' => [
+            'class'   => \yii\authclient\Collection::className(),
+            'clients' => [
+                'vkontakte' => [
+                    'class'        => 'dektrium\user\clients\VKontakte',
+                    'clientId'     => $params['oauth_vkontakte_key'],
+                    'clientSecret' => $params['oauth_vkontakte_secret'],
+                ],
+                'facebook' => [
+                    'class'        => 'dektrium\user\clients\Facebook',
+                    'clientId'     => $params['oauth_facebook_key'],
+                    'clientSecret' => $params['oauth_facebook_secret'],
+                ],
+            ],
+        ],
         'user' => [
             'identityClass' => 'dektrium\user\models\User',
             'enableAutoLogin' => true,
