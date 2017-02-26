@@ -21,6 +21,9 @@ return [
                 'security' => 'app\controllers\user\SecurityController',
                 'recovery' => 'app\controllers\user\RecoveryController',
             ],
+            'modelMap' => [
+                'Profile' => 'app\models\Profile',
+            ],
             'admins' => ['admin'],
             'adminPermission' =>'admin',
             //'layout' => '@app/views/layouts/old_main',
