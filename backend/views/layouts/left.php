@@ -1,3 +1,6 @@
+<?php
+use app\components\AvatarWidget;
+?>
 <aside class="main-sidebar">
 
     <section class="sidebar">
@@ -5,7 +8,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="//gravatar.com/avatar/f845c085e867e17a29599cbd2ca13937?s=200" class="img-circle" alt="User Image"/>
+                <img src="<?= AvatarWidget::widget(['size' => 100,])?>" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
                 <p><?= Yii::$app->user->identity->username ?></p>
