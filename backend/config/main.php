@@ -5,9 +5,9 @@ $params = array_merge(
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
-
 return [
     'id' => 'app-backend',
+    'name' => 'AdminLTE',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -16,17 +16,28 @@ return [
 //            following line will restrict access to profile, recovery, registration and settings controllers from backend
 //            'as backend' => 'dektrium\user\filters\BackendFilter',
             'class' => 'dektrium\user\Module',
+            'admins' => ['admin'],
+            'adminPermission' =>'admin',
             'controllerMap' => [
                 'registration' => 'app\controllers\user\RegistrationController',
                 'security' => 'app\controllers\user\SecurityController',
                 'recovery' => 'app\controllers\user\RecoveryController',
             ],
             'modelMap' => [
+                //'layout' => '@app/views/layouts/old_main',
                 'Profile' => 'app\models\Profile',
             ],
-            'admins' => ['admin'],
-            'adminPermission' =>'admin',
-            //'layout' => '@app/views/layouts/old_main',
+        ],
+        'rbac' => [
+            'class' => 'mdm\admin\Module',
+            'layout' => 'left-menu',
+            'mainLayout' => '@app/views/layouts/main.php',
+            'controllerMap' => [
+                'assignment' => [
+                    'class' => 'mdm\admin\controllers\AssignmentController',
+                    'userClassName' => 'dektrium\user\models\User',
+                ],
+            ],
         ],
     ],
     'components' => [
@@ -57,7 +68,7 @@ return [
         'user' => [
             'identityClass' => 'dektrium\user\models\User',
             'enableAutoLogin' => true,
-            //            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'user' => [
             'identityCookie' => [
@@ -100,6 +111,21 @@ return [
                 ],
             ],
         ],
+    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'index/*',
+            'rbac/*',
+            'user/*',
+            'gii/*',
+            'debug/*',
+            // The actions listed here will be allowed to everyone including guests.
+            // So, 'admin/*' should not appear here in the production, of course.
+            // But in the earlier stages of your development, you may probably want to
+            // add a lot of actions here until you finally completed setting up rbac,
+            // otherwise you may not even take a first step.
+        ]
     ],
     'params' => $params,
 ];
