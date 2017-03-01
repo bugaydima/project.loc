@@ -11,7 +11,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
-class RecoveryController extends BaseRecoveryController
+class MyRecoveryController extends BaseRecoveryController
 {
     public $layout = '@app/views/layouts/auth_layout';
 }

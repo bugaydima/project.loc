@@ -21,7 +21,7 @@ return [
             'controllerMap' => [
                 'registration' => 'app\controllers\user\RegistrationController',
                 'security' => 'app\controllers\user\SecurityController',
-                'recovery' => 'app\controllers\user\RecoveryController',
+                'recovery' => 'app\controllers\user\MyRecoveryController',
             ],
             'modelMap' => [
                 //'layout' => '@app/views/layouts/old_main',
