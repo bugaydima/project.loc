@@ -8,16 +8,10 @@ class AvatarWidget extends Widget
 {
     public $size = 50;
 
-//    public function init()
-//    {
-//        parent::init();
-//
-//    }
-
     public function run()
     {
-        $a = new Profile();
-        $model = $a->getAvatarUrl($this->size);
-        return $model;
+        $user_id = \Yii::$app->user->identity->getId();
+        $gravatar_id = Profile::findOne($user_id)->gravatar_id;
+        return '//gravatar.com/avatar/' . $gravatar_id . '?s=' . $this->size;
     }
 }

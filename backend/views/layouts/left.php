@@ -46,6 +46,19 @@ use app\components\AvatarWidget;
                         ],
                     ],
                     ['label' => 'Профиль', 'icon' => 'fa fa-child', 'url' => ['/user/settings/profile']],
+                    [
+                        'label' => 'RBAC',
+                        'icon' => 'fa fa-registered',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Назначение', 'icon' => 'fa fa-circle-thin', 'url' => ['/rbac/assignment/'],],
+                            ['label' => 'Роли', 'icon' => 'fa fa-circle-thin', 'url' => ['/rbac/role'],],
+                            ['label' => 'Разрешения', 'icon' => 'fa fa-circle-thin', 'url' => ['/rbac/permission'],],
+                            ['label' => 'Маршруты', 'icon' => 'fa fa-circle-thin', 'url' => ['/rbac/route'],],
+                            ['label' => 'Правила', 'icon' => 'fa fa-circle-thin', 'url' => ['/rbac/rule'],],
+                            ['label' => 'Меню', 'icon' => 'fa fa-circle-thin', 'url' => ['/rbac/menu'],],
+                        ],
+                    ],
                 ],
             ]
         ) ?>

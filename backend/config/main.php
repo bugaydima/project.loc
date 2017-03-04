@@ -30,8 +30,14 @@ return [
         ],
         'rbac' => [
             'class' => 'mdm\admin\Module',
-            'layout' => 'left-menu',
+//            'layout' => 'left-menu',
             'mainLayout' => '@app/views/layouts/main.php',
+            'menus' => [
+//                'assignment' => [
+//                    'label' => 'Grant Access' // change label
+//                ],
+                'user' => null, // disable menu
+            ],
             'controllerMap' => [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
