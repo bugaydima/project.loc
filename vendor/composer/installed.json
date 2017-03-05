@@ -3561,5 +3561,43 @@
         ],
         "description": "Symfony Finder Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "trntv/probe",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/trntv/probe.git",
+            "reference": "8a5d6352af261f7d614d23064f474ece7095f370"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/trntv/probe/zipball/8a5d6352af261f7d614d23064f474ece7095f370",
+            "reference": "8a5d6352af261f7d614d23064f474ece7095f370",
+            "shasum": ""
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.0"
+        },
+        "time": "2017-02-23T07:47:00+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Probe\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Eugene Terentev",
+                "email": "eugene@terentev.net"
+            }
+        ],
+        "description": "System information provider"
     }
 ]

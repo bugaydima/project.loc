@@ -68,6 +68,7 @@ class ComposerStaticInit10e7046c954c607d672e705f65c1b68b
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
+            'Probe\\' => 6,
         ),
         'G' => 
         array (
@@ -199,6 +200,10 @@ class ComposerStaticInit10e7046c954c607d672e705f65c1b68b
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Probe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/trntv/probe/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
