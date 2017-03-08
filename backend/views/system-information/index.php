@@ -3,10 +3,13 @@ use common\models\FileStorageItem;
 use common\models\User;
 
 $this->title = Yii::t('backend', 'Информация о системе');
+$this->params['breadcrumbs'][] = $this->title;
+
 $this->registerJs("window.paceOptions = { ajax: false }", \yii\web\View::POS_HEAD);
 $this->registerJsFile('@web/js/system-information/index.js',
     ['depends' => ['\yii\web\JqueryAsset', '\backend\assets\Flot', '\yii\bootstrap\BootstrapPluginAsset']]
 ) ?>
+<section class="content">
 <div id="system-information-index">
     <div class="row connectedSortable">
         <div class="col-lg-6 col-xs-12">
@@ -138,31 +141,137 @@ $this->registerJsFile('@web/js/system-information/index.js',
                 </div><!-- /.box-body -->
             </div>
         </div>
-<!--        <div class="row">-->
-<!--            <div class="col-xs-12">-->
-<!--                <div id="cpu-usage" class="box box-primary">-->
-<!--                    <div class="box-header">-->
-<!--                        <h3 class="box-title">-->
-<!--                            CPU Usage-->
-<!--                        </h3>-->
-<!--                        <div class="box-tools pull-right">-->
-<!--                            Real time-->
-<!--                            <div class="realtime btn-group" data-toggle="btn-toggle">-->
-<!--                                <button type="button" class="btn btn-default btn-xs active" data-toggle="on">-->
-<!--                                    On-->
-<!--                                </button>-->
-<!--                                <button type="button" class="btn btn-default btn-xs" data-toggle="off">-->
-<!--                                    Off-->
-<!--                                </button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="box-body">-->
-<!--                        <div class="chart" style="height: 300px;">-->
-<!--                        </div>-->
-<!--                    </div><!-- /.box-body-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>
+                            <?php echo gmdate('H:i:s', $provider->getUptime()) ?>
+                        </h3>
+                        <p>
+                            <?php echo Yii::t('backend', 'Uptime') ?>
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <div class="small-box-footer">
+                        &nbsp;
+                    </div>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>
+                            <?php echo $provider->getLoadAverage() ?>
+                        </h3>
+                        <p>
+                            <?php echo Yii::t('backend', 'Средняя нагрузка') ?>
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <div class="small-box-footer">
+                        &nbsp;
+                    </div>
+                </div>
+            </div><!-- ./col -->
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>
+                            <?php echo User::find()->count() ?>
+                        </h3>
+                        <p>
+                            <?php echo Yii::t('backend', 'Регистраций') ?>
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['/user/admin']) ?>" class="small-box-footer">
+                        <?php echo Yii::t('backend', 'Подробнее') ?> <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>
+                           0 <?php //echo FileStorageItem::find()->count() ?>
+                        </h3>
+                        <p>
+                            <?php echo Yii::t('backend', 'Файлов в хранилище') ?>
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="<?php echo Yii::$app->urlManager->createUrl(['/file-storage/index']) ?>" class="small-box-footer">
+                        <?php echo Yii::t('backend', 'Подробнее') ?> <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div><!-- ./col -->
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="cpu-usage" class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <?php echo Yii::t('backend', 'Использование CPU') ?>
+                        </h3>
+                        <div class="box-tools pull-right">
+                            <?php echo Yii::t('backend', 'В режиме реального времени') ?>
+                            <div class="realtime btn-group" data-toggle="btn-toggle">
+                                <button type="button" class="btn btn-default btn-xs active" data-toggle="on">
+                                    <?php echo Yii::t('backend', 'Вкл') ?>
+                                </button>
+                                <button type="button" class="btn btn-default btn-xs" data-toggle="off">
+                                    <?php echo Yii::t('backend', 'Выкл') ?>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="chart" style="height: 300px;">
+                        </div>
+                    </div><!-- /.box-body-->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="memory-usage" class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <?php echo Yii::t('backend', 'Использование памяти') ?>
+                        </h3>
+                        <div class="box-tools pull-right">
+                            <?php echo Yii::t('backend', 'В режиме реального времени') ?>
+                            <div class="btn-group realtime" data-toggle="btn-toggle">
+                                <button type="button" class="btn btn-default btn-xs active" data-toggle="on">
+                                    <?php echo Yii::t('backend', 'Вкл') ?>
+                                </button>
+                                <button type="button" class="btn btn-default btn-xs" data-toggle="off">
+                                    <?php echo Yii::t('backend', 'Выкл') ?>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="chart" style="height: 300px;">
+                        </div>
+                    </div><!-- /.box-body-->
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+</section>

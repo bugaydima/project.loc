@@ -46,6 +46,7 @@ use app\components\AvatarWidget;
                         ],
                     ],
                     ['label' => 'Профиль', 'icon' => 'fa fa-child', 'url' => ['/user/settings/profile']],
+                    ['label' => Yii::t('backend', 'Информация о системе'), 'icon' => 'fa fa-server', 'url' => ['/system-information/']],
                     [
                         'label' => 'RBAC',
                         'icon' => 'fa fa-registered',

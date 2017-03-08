@@ -27,4 +27,15 @@ return [
     'Свободно памяти' => 'Free memory',
     'Общий Swap' => 'Total Swap',
     'Свободно Swap' => 'Free Swap',
+    'Uptime' => 'Uptime',
+    'Средняя нагрузка' => 'Load average',
+    'Регистраций' => 'User Registrations',
+    'Подробнее' => 'More info',
+    'Файлов в хранилище' => 'Files in storage',
+    'Использование CPU' => 'CPU Usage',
+    'В режиме реального времени' => 'Real time',
+    'Выкл' => 'Off',
+    'Вкл' => 'On',
+    'Использование памяти' => 'Memory Usage',
+
 ];
