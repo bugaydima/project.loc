@@ -40,7 +40,13 @@ use dmstr\widgets\Alert;
         <b>Version</b> 2.0
     </div>
     <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    reserved. | <?php
+    if (Yii::$app->language == 'ru-RU'):
+        echo \yii\helpers\Html::a('Go to English', ['/lang/set?lang=en']);
+    else:
+        echo \yii\helpers\Html::a('Перейти на русский', ['/lang/set?lang=ru']);
+    endif;
+    ?>
 </footer>
 
 <!-- Control Sidebar -->

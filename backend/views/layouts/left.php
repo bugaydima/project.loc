@@ -37,7 +37,7 @@ use app\components\AvatarWidget;
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
-                        'label' => 'Пользователи',
+                        'label' => Yii::t('backend', 'Пользователи'),
                         'icon' => 'fa fa-users',
                         'url' => '#',
                         'items' => [
@@ -45,7 +45,7 @@ use app\components\AvatarWidget;
                             ['label' => 'Создать пользователя', 'icon' => 'fa fa-user-plus', 'url' => ['/user/admin/create'],],
                         ],
                     ],
-                    ['label' => 'Профиль', 'icon' => 'fa fa-child', 'url' => ['/user/settings/profile']],
+                    ['label' => Yii::t('backend', 'Профиль'), 'icon' => 'fa fa-child', 'url' => ['/user/settings/profile']],
                     ['label' => Yii::t('backend', 'Информация о системе'), 'icon' => 'fa fa-server', 'url' => ['/system-information/']],
                     [
                         'label' => 'RBAC',

@@ -48,8 +48,10 @@ return [
     ],
     'components' => [
         'request' => [
+            'class' => 'backend\components\LangRequest',
             'csrfParam' => '_csrf-backend',
             'baseUrl' => '/admin',
+
         ],
 //        'user' => [
 //            'identityClass' => 'common\models\User',
@@ -124,6 +126,7 @@ return [
             'index/*',
             'rbac/*',
             'user/*',
+            'lang/*',
             'gii/*',
             'debug/*',
             'system-information/*',
