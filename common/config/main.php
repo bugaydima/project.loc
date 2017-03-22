@@ -16,8 +16,8 @@ return [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath'=>'@common/messages',
                     'fileMap'=>[
-                        'common'=>'common.php',
-                        'backend'=>'backend.php',
+                        'layout'=>'backend/layout.php',
+                        'backend'=>'backend/backend.php',
                         'frontend'=>'frontend.php',
                     ],
                 ],

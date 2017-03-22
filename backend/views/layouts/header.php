@@ -257,14 +257,14 @@ use app\components\AvatarWidget;
                         <li class="user-footer">
                             <div class="pull-left">
                                 <?= Html::a(
-                                    'Профиль',
+                                    Yii::t('layout', 'Профиль'),
                                     ['/user/settings/profile'],
                                     ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                                 ) ?>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
-                                    'Выход',
+                                    Yii::t('layout', 'Выход'),
                                     ['/user/logout'],
                                     ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                                 ) ?>
