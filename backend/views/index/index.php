@@ -1,34 +1,32 @@
 <?php
-$this->title = 'Главная';
+use common\models\User;
+
+$this->title = Yii::t('backend', 'Главная');
 //$this->params['breadcrumbs'][] = [
 //                                'label' => '',
 //                                ];
 ?>
 <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-
-            <div class="info-box-content">
-                <span class="info-box-text">CPU Traffic</span>
-                <span class="info-box-number">90<small>%</small></span>
-            </div>
-            <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-    </div>
     <!-- /.col -->
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
-
-            <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua-active">
+            <div class="inner">
+                <h3>
+                    <?php echo User::find()->count() ?>
+                </h3>
+                <p>
+                    <?php echo Yii::t('backend', 'Регистраций') ?>
+                </p>
             </div>
-            <!-- /.info-box-content -->
+            <div class="icon">
+                <?= \yii\helpers\Html::a('', ['/user/admin/create'])?>
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="<?php echo Yii::$app->urlManager->createUrl(['/user/admin']) ?>" class="small-box-footer">
+                <?php echo Yii::t('backend', 'Подробнее') ?> <i class="fa fa-arrow-circle-right"></i>
+            </a>
         </div>
-        <!-- /.info-box -->
     </div>
     <!-- /.col -->
 
